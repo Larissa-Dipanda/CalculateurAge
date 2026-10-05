@@ -1,4 +1,6 @@
-﻿namespace CalculateurAge
+﻿using CalculateurAge.Views;
+
+namespace CalculateurAge
 {
     public partial class MainPage : ContentPage
     {
@@ -35,8 +37,9 @@
 
             // On écrit DIRECTEMENT dans les contrôles : c'est
             // précisément ce que le MVVM va supprimer.
-            lblResultat.Text = $"{entryNom.Text}, vous avez {age} ans";
-            lblResultat.IsVisible = true;
+            await Shell.Current.GoToAsync(
+            $"{nameof(ResultatPage)}?nom={entryNom.Text}&age={age}");
+
         }
 
     }
