@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using CalculateurAge.ViewModels;
+using CalculateurAge.Views;
 
 namespace CalculateurAge
 {
@@ -18,7 +20,9 @@ namespace CalculateurAge
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
-
+            builder.Services.AddSingleton<CalculateurViewModel>(); // une seule instance partagée
+            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<ResultatPage>();
             return builder.Build();
         }
     }

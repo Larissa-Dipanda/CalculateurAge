@@ -13,8 +13,23 @@
             <DatePicker Date="{Binding DateNaissance, Mode=TwoWay}"/>
             <Button Text="Calculer"
             Command="{Binding CalculerCommand}"/>
+            <Button Text="Effacer" Command="{Binding EffacerCommand}"/>
             <Label Text="{Binding Resultat}" FontSize="20"
            IsVisible="{Binding ResultatVisible}"/>
+            <Label Text="{Binding Message}" FontSize="18" TextColor="Gray"
+           IsVisible="{Binding ResultatVisible}"/>
+            <Label Text="{Binding JoursRestants}" FontSize="16"
+           IsVisible="{Binding ResultatVisible}"/>
+            <Button Text="Voir le détail" Command="{Binding VoirDetailCommand}"
+           IsVisible="{Binding ResultatVisible}"/>
+            <Label Text="Historique" FontSize="16" FontAttributes="Bold"/>
+            <VerticalStackLayout BindableLayout.ItemsSource="{Binding Historique}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <Label Text="{Binding .}" Padding="0,4"/>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 
